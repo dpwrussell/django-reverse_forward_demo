@@ -8,5 +8,5 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^car/(?P<pk>\d+)/$', DemoCarView.as_view(), name='car_detail'),
-    url(r'^carpreload/(?P<pk>\d+)/$', DemoCarViewPreload.as_view(), name='car_detail'),
+    url(r'^carpreload/(?P<pk>\d+)/$', DemoCarViewPreload.as_view(), name='car_detail_preload'),
 )

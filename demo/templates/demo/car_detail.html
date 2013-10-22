@@ -1,9 +1,19 @@
 {{ car.name }}
+
+<h1>2+n Queries</h1>
 <ul>
 <!-- 2nd query here, desired-->
 {% for part in car.part_set.all %}
-	<!-- 3rd query here, not desired as it is in fact n queries,
-		one for each part -->
+	<!-- 3rd query here, not desired as it is in fact n queries, one for each part -->
 	<li>{{ part.name }} - {{ part.manufacturer.name }} </li>
 {% endfor %}
 </ul>
+
+<h1>2 Queries (but bloated)</h1>
+<ul>
+{% for part in car.part_set.select_related.all %}
+    <li>{{ part.name }} - {{ part.manufacturer.name }} </li>
+{% endfor %}
+</ul>
+
+<h1>2 Queries (solution?)</h1>
