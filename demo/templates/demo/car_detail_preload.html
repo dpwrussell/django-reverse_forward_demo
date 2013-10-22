@@ -1,0 +1,9 @@
+{{ car.name }}
+<ul>
+<!-- 2nd query here, desired-->
+{% for part in parts %}
+	<!-- 3rd query here, not desired as it is in fact n queries,
+		one for each part -->
+	<li>{{ part.name }} - {{ part.manufacturer.name }} </li>
+{% endfor %}
+</ul>
