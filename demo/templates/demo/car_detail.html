@@ -16,4 +16,9 @@
 {% endfor %}
 </ul>
 
-<h1>2 Queries (solution?)</h1>
+<h1>2 Queries Potential solution (best?)</h1>
+<ul>
+{% for part in car.parts_with_manufacturers %}
+    <li>{{ part.name }} - {{ part.manufacturer.name }} </li>
+{% endfor %}
+</ul>
