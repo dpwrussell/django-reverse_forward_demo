@@ -8,11 +8,16 @@ lookups.
 DemoCarView
 ===========
 Inefficient querying view.
+
 Uses HTML: car_detail.html
+
 At URL:  demo/car/1
 
 DemoCarViewPreload
 ==================
+
 Efficient querying view, but loses some benefits of using generic views
+
 Uses HTML: car_detail_preload.html
+
 At URL:  demo/carpreload/1
