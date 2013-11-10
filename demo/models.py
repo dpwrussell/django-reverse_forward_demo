@@ -14,5 +14,5 @@ class Manufacturer(models.Model):
 # Parts
 class Part(models.Model):
     name = models.CharField(max_length=32)
-    car = models.ForeignKey(Car)
+    car = models.ForeignKey(Car, blank=True, null=True, default=None)
     manufacturer = models.ForeignKey(Manufacturer)

@@ -1,0 +1,12 @@
+<ul>
+{% for car in car_list %}
+	<li>
+        <h2>{{ car.name }}</h2>
+        <ul>
+        {% for part in car.part_set.all %}
+            <li>{{ part.name }}</li>
+        {% endfor %}
+        </ul>
+    </li>
+{% endfor %}
+</ul>

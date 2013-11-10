@@ -1,11 +1,12 @@
 from django.shortcuts import render
-from django.views.generic import DetailView, TemplateView
+from django.views.generic import DetailView, TemplateView, ListView
 
 from demo.models import Car, Part
 
 class DemoCarView(DetailView):
     # 1st query implicitly here, basically Car.objects.get(pk=<pk>), desired
     model = Car
+
 
 class DemoCarViewPreload(TemplateView):
     template_name = 'demo/car_detail_preload.html'
@@ -17,3 +18,11 @@ class DemoCarViewPreload(TemplateView):
         # 2nd and final query here. Optimum
         context['parts'] = Part.objects.select_related('manufacturer').filter(car=car)
         return context
+
+
+class DemoCarsView(ListView):
+    model = Car
+    template_name = 'demo/cars.html'
+
+    def get_queryset(self):
+        return Car.objects.prefetch_related('part_set', 'part_set__manufacturer') #.all()
